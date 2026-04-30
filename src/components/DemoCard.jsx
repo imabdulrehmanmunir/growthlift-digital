@@ -1,9 +1,16 @@
 // Reusable demo card component for portfolio showcase
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { config } from '../config';
 
 export default function DemoCard({ demo, index }) {
+  const handleWhatsApp = (e) => {
+    e.preventDefault();
+    const message = `Hi, I'm interested in learning more about the ${demo.name} project.`;
+    window.open(`https://wa.me/${config.whatsapp}?text=${encodeURIComponent(message)}`, '_blank');
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -15,17 +22,14 @@ export default function DemoCard({ demo, index }) {
       <Link to={`/demo/${demo.id}`}>
         <div className="glass rounded-xl overflow-hidden h-full cursor-pointer hover:border-accent/50 transition-all duration-300 hover:shadow-2xl hover:shadow-accent/20 hover:scale-[1.02]">
           
-          {/* Image Area */}
-          <div className="relative h-64 overflow-hidden">
-            <img
-              src={demo.imageHorizontal} // change if your file name differs
-              alt={demo.name}
-              className="w-full h-full object-fit transition-transform duration-500 group-hover:scale-110"
-            />
-
-            {/* Dark overlay */}
-            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-all duration-300"></div>
-
+          {/* Case Study Header */}
+          <div className="relative h-40 bg-gradient-to-br from-accent/20 to-accent-2/20 flex items-center justify-center overflow-hidden">
+            <div className="text-center">
+              <h4 className="font-syne text-sm font-bold text-accent/60 uppercase tracking-widest mb-2">
+                Case Study
+              </h4>
+              <p className="text-text-muted text-sm">Learn how we built this</p>
+            </div>
           </div>
 
           {/* Card Content */}
@@ -48,7 +52,7 @@ export default function DemoCard({ demo, index }) {
             {/* CTA */}
             <div className="flex items-center justify-between pt-4 border-t border-border group-hover:border-accent/30 transition-colors">
               <span className="text-accent font-medium text-sm">
-                View Demo
+                View Case Study
               </span>
 
               <motion.div

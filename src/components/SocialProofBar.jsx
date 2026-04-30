@@ -4,12 +4,12 @@ import { Star } from 'lucide-react';
 
 export default function SocialProofBar() {
   const items = [
-    'Dental Clinics',
-    'Medical Practices',
-    'Specialist Doctors',
-    'Healthcare Brands',
-    'Local Businesses',
-    'International Clients',
+    'Startups',
+    'Small Businesses',
+    'Tech Companies',
+    'E-Commerce Brands',
+    'Digital Agencies',
+    'SaaS Founders',
   ];
 
   // Create a duplicated array for seamless loop

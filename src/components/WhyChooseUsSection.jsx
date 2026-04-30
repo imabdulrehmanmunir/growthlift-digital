@@ -4,10 +4,10 @@ import { CheckCircle2 } from 'lucide-react';
 
 export default function WhyChooseUsSection() {
   const benefits = [
-    'Fast 7-Day Delivery',
-    'Mobile-First Design',
-    'WhatsApp Integration Included',
-    'Free Revisions Until You Love It',
+    'Expert MERN & Android Development',
+    'Performance-Optimized Solutions',
+    'Agile Development Process',
+    'Post-Launch Support & Maintenance',
   ];
 
   const containerVariants = {
@@ -42,11 +42,10 @@ export default function WhyChooseUsSection() {
             viewport={{ once: true }}
           >
             <h2 className="font-syne text-5xl font-bold leading-tight text-text-primary">
-              Your Clinic Deserves More Than a Basic Website.
+              Your Startup Deserves World-Class Development.
             </h2>
             <p className="text-text-muted mt-6 text-lg leading-relaxed">
-              We build websites that work as hard as you do. Every design decision is made with one
-              goal: turning your website visitors into booked appointments.
+              We build scalable web and mobile applications that give your business a competitive edge. Every line of code is crafted with performance, security, and user experience in mind.
             </p>
           </motion.div>
 

@@ -25,10 +25,10 @@ export default function PortfolioSection() {
         >
           <div>
             <h2 className="font-syne text-4xl font-bold mb-4 text-text-primary">
-              Real Results for Real Clinics
+              Real Results for Real Businesses
             </h2>
             <p className="text-text-muted text-lg max-w-xl">
-              See examples of websites we've built that are bringing patients through the door
+              See how we've helped startups and businesses scale with custom web and mobile solutions
             </p>
           </div>
           <Link to="/portfolio">

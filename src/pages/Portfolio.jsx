@@ -1,13 +1,14 @@
 // Portfolio page showing all demo projects with filter capability
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { demos } from '../data/demos';
 import DemoCard from '../components/DemoCard';
 
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState('All');
 
-  const filterOptions = ['All', 'Dental', 'Medical', 'Specialist'];
+  const filterOptions = ['All', 'React & Vite', 'Android & Firebase'];
 
   const filteredDemos =
     activeFilter === 'All'
@@ -17,20 +18,27 @@ export default function Portfolio() {
         );
 
   return (
-    <motion.main
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="min-h-screen pt-32 px-4 sm:px-8 pb-20"
-    >
-      <div className="max-w-7xl mx-auto">
-        {/* Page Header */}
-        <div className="mb-16 text-center">
+    <>
+      <Helmet>
+        <title>Portfolio | GrowthLift Digital - Web & Mobile Projects</title>
+        <meta name="description" content="View our portfolio of web and mobile app projects. See case studies of MERN stack applications, React.js frontends, Android apps with Firebase, and Flutter development." />
+        <meta name="keywords" content="web development portfolio, mobile app projects, React projects, Android apps, case studies, MERN stack projects" />
+        <link rel="canonical" href="https://growthliftdigital.com/portfolio" />
+      </Helmet>
+      <motion.main
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="min-h-screen pt-32 px-4 sm:px-8 pb-20"
+      >
+        <div className="max-w-7xl mx-auto">
+          {/* Page Header */}
+          <div className="mb-16 text-center">
           <h1 className="font-syne text-5xl font-bold mb-4 text-text-primary">
             Our Portfolio
           </h1>
           <p className="text-text-muted text-lg max-w-2xl mx-auto">
-            Websites we've built for healthcare businesses that are bringing in more patients
+            Case studies showcasing our expertise in web, mobile, and software development for startups and businesses
           </p>
         </div>
 
@@ -70,7 +78,8 @@ export default function Portfolio() {
             ))}
           </motion.div>
         </AnimatePresence>
-      </div>
-    </motion.main>
+        </div>
+      </motion.main>
+    </>
   );
 }

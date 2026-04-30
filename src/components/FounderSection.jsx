@@ -92,10 +92,7 @@ export default function FounderSection() {
             </div>
 
             <p className="text-gray-600 text-lg leading-relaxed mb-8">
-              Dedicated to transforming healthcare digital presence. With a passion
-              for building beautiful, functional websites for medical professionals,
-              I help clinics and doctors reach more patients through cutting-edge
-              web solutions.
+              Passionate about empowering startups and businesses through innovative web and mobile solutions. With expertise in MERN Stack, Android development, and Flutter, I help entrepreneurs and companies build scalable, high-performance digital products that drive growth.
             </p>
 
             <div className="flex justify-center gap-4">

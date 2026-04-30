@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, MessageCircle } from 'lucide-react';
 import { demos } from '../data/demos';
 import { config } from '../config';
@@ -7,7 +8,8 @@ import { config } from '../config';
 export default function DemoPage() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const demo = demos.find((d) => d.id === parseInt(id));
+  // Added radix 10 and a fallback for safety
+  const demo = demos.find((d) => d.id === parseInt(id || '0', 10));
 
   if (!demo) {
     return (
@@ -18,146 +20,134 @@ export default function DemoPage() {
   }
 
   return (
-    <motion.main
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="min-h-screen pt-32 px-4 sm:px-8 pb-20"
-    >
-      <div className="max-w-6xl mx-auto">
+    <>
+      <Helmet>
+        <title>{demo.name} - Case Study | GrowthLift Digital</title>
+        <meta name="description" content={`${demo.caseStudy?.problem || demo.description} Built with ${demo.tag}.`} />
+        <meta name="keywords" content={`${demo.name}, ${demo.tag}, case study, web development, mobile app`} />
+        <link rel="canonical" href={`https://growthliftdigital.com/demo/${demo.id}`} />
+      </Helmet>
+      
+      <motion.main
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="min-h-screen pt-32 px-4 sm:px-8 pb-20"
+      >
+        <div className="max-w-6xl mx-auto">
 
-        {/* Back Button */}
-        <button
-          onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-accent hover:text-accent/80 mb-12 transition-colors"
-        >
-          <ArrowLeft size={20} />
-          Back
-        </button>
-
-        {/* Header */}
-        <div className="mb-16 text-center">
-          <span className="inline-block text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full mb-4">
-            {demo.tag}
-          </span>
-          <h1 className="font-syne text-5xl font-bold mb-4 text-text-primary">
-            {demo.name}
-          </h1>
-          <p className="text-text-muted text-lg max-w-2xl mx-auto">
-            {demo.description}
-          </p>
-        </div>
-
-        {/* Mockups */}
-        <div className="mb-20 grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-          {/* Desktop */}
-          <div className="group relative">
-            <div className="glass rounded-xl overflow-hidden p-2">
-              <div className="bg-black rounded-lg overflow-hidden border border-border">
-
-                {/* Browser Top */}
-                <div className="flex items-center gap-2 bg-surface-2 px-4 py-3 border-b border-border">
-                  <div className="flex gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-green-500/50" />
-                  </div>
-                  <p className="text-xs text-text-muted ml-2">
-                    {demo.name.toLowerCase().replace(/\s+/g, '')}.com
-                  </p>
-                </div>
-
-                {/* Image */}
-                <div className="relative aspect-video overflow-hidden">
-                  <img
-                    src={demo.imageHorizontal}
-                    alt="Desktop View"
-                    className="w-full h-full object-fit transition-transform duration-500 group-hover:scale-105"
-                  />
-
-                  <div className="absolute inset-0 bg-black/30"></div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          {/* Mobile */}
-          <div className="group flex items-center justify-center">
-            <div className="glass rounded-3xl overflow-hidden p-3 max-w-sm w-full">
-              <div className="bg-black rounded-2xl overflow-hidden border border-border">
-
-                {/* Status Bar */}
-                <div className="bg-surface-2 px-4 py-2 border-b border-border text-center text-xs text-text-muted">
-                  9:41
-                </div>
-
-                {/* Image */}
-                <div className="relative aspect-[9/19] overflow-hidden">
-                  <img
-                    src={demo.imageVertical}
-                    alt="Mobile View"
-                    className="w-full h-full object-fit transition-transform duration-500 group-hover:scale-105"
-                  />
-
-                  <div className="absolute inset-0 bg-black/30"></div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Features */}
-        <div className="glass rounded-xl p-12 mb-16">
-          <h2 className="font-syne text-2xl font-bold mb-8 text-text-primary">
-            What's Included
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              'Fully Responsive Design',
-              'Mobile Optimized',
-              'Fast Loading Times',
-              'SEO Optimized',
-              'WhatsApp Integration',
-              'Appointment Booking',
-              'Google Analytics Setup',
-              'Contact Forms',
-            ].map((feature) => (
-              <div key={feature} className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-accent" />
-                <p className="text-text-primary">{feature}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* CTA */}
-        <div className="glass rounded-xl p-12 text-center">
-          <h2 className="font-syne text-3xl font-bold mb-4 text-text-primary">
-            This Could Be YOUR Website
-          </h2>
-
-          <p className="text-text-muted text-lg mb-8 max-w-2xl mx-auto">
-            Get a free mockup of your clinic's website designed specifically for your needs
-          </p>
-
-          <a
-            href={`https://wa.me/${config.whatsapp}`}
-            target="_blank"
-            rel="noopener noreferrer"
+          {/* Back Button */}
+          <button
+            onClick={() => navigate(-1)}
+            className="flex items-center gap-2 text-accent hover:text-accent/80 mb-12 transition-colors"
           >
-            <button className="btn-primary pulse-glow text-lg px-10 py-4 flex items-center gap-3 mx-auto">
-              <MessageCircle size={24} />
-              Get Your Free Mockup →
-            </button>
-          </a>
-        </div>
+            <ArrowLeft size={20} />
+            Back
+          </button>
 
-      </div>
-    </motion.main>
+          {/* Header */}
+          <div className="mb-16 text-center">
+            <span className="inline-block text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full mb-4">
+              {demo.tag}
+            </span>
+            <h1 className="font-syne text-5xl font-bold mb-4 text-text-primary">
+              {demo.name}
+            </h1>
+            <p className="text-text-muted text-lg max-w-2xl mx-auto">
+              {demo.description}
+            </p>
+          </div>
+
+          {/* Mockups */}
+          <div className="mb-20">
+            <div className="glass rounded-xl p-12 text-center">
+              <div className="max-w-2xl mx-auto">
+                <h2 className="font-syne text-3xl font-bold mb-4 text-text-primary">
+                  View Full Project Details
+                </h2>
+                <p className="text-text-muted text-lg mb-8 leading-relaxed">
+                  Want to see the complete mockups, live demo, or discuss similar solutions for your project? Get in touch with us on WhatsApp for a personalized walkthrough.
+                </p>
+                {/* Fixed: Removed button from inside anchor tag */}
+                <a
+                  href={`https://wa.me/${config.whatsapp}?text=${encodeURIComponent(`Hi, I'd like to see the full mockup and details of the ${demo.name} project.`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary pulse-glow text-lg px-10 py-4 inline-flex items-center justify-center gap-3 mx-auto"
+                >
+                  <MessageCircle size={24} />
+                  Get Full Demo on WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Case Study Content */}
+          <div className="glass rounded-xl p-12 mb-16">
+            <h2 className="font-syne text-3xl font-bold mb-8 text-text-primary">
+              The Challenge
+            </h2>
+            <p className="text-text-muted text-lg leading-relaxed mb-8">
+              {demo.caseStudy?.problem || demo.description}
+            </p>
+
+            <h2 className="font-syne text-3xl font-bold mb-8 text-text-primary">
+              Our Solution
+            </h2>
+            <p className="text-text-muted text-lg leading-relaxed">
+              {demo.caseStudy?.solution || 'A comprehensive, results-driven approach to delivering exceptional digital solutions.'}
+            </p>
+          </div>
+
+          {/* Technology Stack */}
+          <div className="glass rounded-xl p-12 mb-16">
+            <h2 className="font-syne text-2xl font-bold mb-8 text-text-primary">
+              Technology & Features
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                'Responsive Design',
+                'High Performance',
+                'Security Best Practices',
+                'SEO Optimized',
+                'Scalable Architecture',
+                'Real-time Data Sync',
+                'Analytics Integration',
+                'User-Centric UX',
+              ].map((feature) => (
+                <div key={feature} className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-accent" />
+                  <p className="text-text-primary">{feature}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="glass rounded-xl p-12 text-center">
+            <h2 className="font-syne text-3xl font-bold mb-4 text-text-primary">
+              Let's Build Your Next Project
+            </h2>
+
+            <p className="text-text-muted text-lg mb-8 max-w-2xl mx-auto">
+              Ready to turn your idea into a high-performing web or mobile application? Let's discuss how we can help your business scale.
+            </p>
+
+            {/* Fixed: Removed button from inside anchor tag */}
+            <a
+              href={`https://wa.me/${config.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary pulse-glow text-lg px-10 py-4 inline-flex items-center justify-center gap-3 mx-auto"
+            >
+              <MessageCircle size={24} />
+              Start Your Project →
+            </a>
+          </div>
+
+        </div>
+      </motion.main>
+    </>
   );
 }

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { config } from '../config';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,6 +22,11 @@ export default function Navbar() {
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location]);
+
+  const handleGetMockup = () => {
+    const message = 'Hi, I\'d like to get a free mockup/demo of a project.';
+    window.open(`https://wa.me/${config.whatsapp}?text=${encodeURIComponent(message)}`, '_blank');
+  };
 
   const navLinks = [
     { label: 'Home', href: '/' },
@@ -65,7 +71,10 @@ export default function Navbar() {
           </div>
 
           {/* CTA Button - Desktop */}
-          <button className="hidden md:block btn-primary pulse-glow">
+          <button
+            onClick={handleGetMockup}
+            className="hidden md:block btn-primary pulse-glow"
+          >
             Get Free Mockup →
           </button>
 
@@ -104,7 +113,12 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <button className="btn-primary mt-4">Get Free Mockup →</button>
+              <button
+                onClick={handleGetMockup}
+                className="btn-primary mt-4"
+              >
+                Get Free Mockup →
+              </button>
             </div>
           </motion.div>
         )}

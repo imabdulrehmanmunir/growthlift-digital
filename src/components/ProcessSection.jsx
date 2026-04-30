@@ -6,26 +6,26 @@ export default function ProcessSection() {
   const steps = [
     {
       number: 1,
-      title: 'Free Mockup',
-      description: 'Get a mockup of your website at no cost or commitment',
+      title: 'Discovery Call',
+      description: 'We understand your vision, goals, and technical requirements',
       icon: Gift,
     },
     {
       number: 2,
-      title: 'You Approve',
-      description: 'Review the design and request revisions if needed',
+      title: 'Design & Plan',
+      description: 'Present wireframes, architecture, and project timeline',
       icon: CheckCircle2,
     },
     {
       number: 3,
-      title: 'We Build',
-      description: 'We develop your website with lightning-fast performance',
+      title: 'Build & Develop',
+      description: 'We develop your app with clean code and best practices',
       icon: Code,
     },
     {
       number: 4,
-      title: 'You Launch',
-      description: 'Deploy your website and start getting appointments',
+      title: 'Deploy & Support',
+      description: 'Launch to production and provide ongoing support & maintenance',
       icon: Rocket,
     },
   ];

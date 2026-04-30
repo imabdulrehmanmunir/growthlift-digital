@@ -10,9 +10,9 @@ export default function HeroSection() {
   const [charIndex, setCharIndex] = useState(0);
 
   const cycleTexts = [
-    'Dental Clinic Website',
-    'Medical Clinic Website',
-    'Specialist Doctor Website',
+    'MERN Stack Development',
+    'Custom Android Apps',
+    'Flutter Mobile Solutions',
   ];
 
   // Typewriter effect
@@ -94,8 +94,8 @@ export default function HeroSection() {
 
           {/* Main Headline */}
           <motion.h1 variants={childVariants} className="font-syne text-5xl font-bold leading-tight">
-            We Build Websites That Bring You More{' '}
-            <span className="animated-underline text-accent">Patients</span>.
+            Building Web & Mobile Solutions That Drive{' '}
+            <span className="animated-underline text-accent">Growth</span>.
           </motion.h1>
 
           {/* Subheading */}
@@ -103,8 +103,7 @@ export default function HeroSection() {
             variants={childVariants}
             className="text-lg text-text-muted max-w-lg leading-relaxed"
           >
-            GrowthLift Digital helps clinics, dentists, and healthcare professionals get found
-            online and turn visitors into booked appointments.
+            GrowthLift Digital specializes in building high-performance web and mobile applications for startups and small businesses. From React to Flutter, we deliver results.
           </motion.p>
 
           {/* CTA Buttons */}

@@ -33,11 +33,11 @@ export default function CTASection() {
         className="max-w-3xl mx-auto text-center"
       >
         <h2 className="font-syne text-5xl font-bold mb-6 text-text-primary">
-          Ready to Fill Your Appointment Book?
+          Ready to Scale Your Business?
         </h2>
 
         <p className="text-text-muted text-xl mb-10 leading-relaxed">
-          Get a free website mockup for your clinic — no payment, no commitment. Just results.
+          Get a free consultation on your web or mobile app project — no payment, no commitment. Let's discuss your vision.
         </p>
 
         <a

@@ -1,26 +1,32 @@
-// Services section with 3 cards showing main offerings
+// Services section with 4 cards showing main offerings
 import { motion } from 'framer-motion';
-import { Code, Search, MessageSquare } from 'lucide-react';
+import { Code, Smartphone, Wind, TrendingUp } from 'lucide-react';
 
 export default function ServicesSection() {
   const services = [
     {
       number: '01',
-      title: 'Custom Website Design',
-      description: 'Beautiful, fast, and conversion-focused websites built specifically for healthcare businesses.',
+      title: 'MERN Stack Development',
+      description: 'Full-stack web applications using MongoDB, Express, React, and Node.js. Scalable, performant solutions built for growth.',
       icon: Code,
     },
     {
       number: '02',
-      title: 'SEO & Google Visibility',
-      description: 'Get found by patients searching for your services in your area. Local SEO expertise included.',
-      icon: Search,
+      title: 'Custom Android Apps',
+      description: 'Native Android applications built with Java and Firebase integration. Real-time databases, secure admin dashboards, and seamless user experiences.',
+      icon: Smartphone,
     },
     {
       number: '03',
-      title: 'WhatsApp & Appointment Integration',
-      description: 'One-click WhatsApp chat and integrated appointment booking that converts visitors into bookings.',
-      icon: MessageSquare,
+      title: 'Flutter Development',
+      description: 'Cross-platform mobile applications that work flawlessly on iOS and Android. Write once, deploy everywhere with beautiful UI.',
+      icon: Wind,
+    },
+    {
+      number: '04',
+      title: 'SEO Strategy',
+      description: 'Data-driven SEO strategies to boost your online visibility. We handle technical optimization, content strategy, and performance tracking.',
+      icon: TrendingUp,
     },
   ];
 
@@ -56,10 +62,10 @@ export default function ServicesSection() {
           className="text-center mb-16"
         >
           <h2 className="font-syne text-4xl font-bold mb-4 text-text-primary">
-            Everything Your Clinic Needs Online
+            Everything Your Business Needs to Scale
           </h2>
           <p className="text-text-muted text-lg max-w-2xl mx-auto">
-            We handle design, SEO, integrations, and everything in between
+            We offer end-to-end development services tailored for startups and growing businesses
           </p>
         </motion.div>
 
@@ -69,7 +75,7 @@ export default function ServicesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
         >
           {services.map((service) => {
             const IconComponent = service.icon;

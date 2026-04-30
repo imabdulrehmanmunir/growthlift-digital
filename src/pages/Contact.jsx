@@ -1,6 +1,7 @@
 // Contact page with contact info and form
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { MessageCircle, Mail, Clock } from 'lucide-react';
 import { config } from '../config';
 
@@ -20,7 +21,7 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Send to WhatsApp
-    const message = `Hi, I'd like to discuss a website for my clinic.\n\nName: ${formData.name}\nBusiness: ${formData.businessName}\nWhatsApp: ${formData.whatsapp}\n\nMessage: ${formData.message}`;
+    const message = `Hi, I'd like to discuss a web or mobile app project.\n\nName: ${formData.name}\nBusiness: ${formData.businessName}\nWhatsApp: ${formData.whatsapp}\n\nMessage: ${formData.message}`;
     const whatsappUrl = `https://wa.me/${config.whatsapp}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -39,24 +40,31 @@ export default function Contact() {
   };
 
   return (
-    <motion.main
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="min-h-screen pt-32 px-4 sm:px-8 pb-20"
-    >
-      <div className="max-w-7xl mx-auto">
-        {/* Page Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-16"
-        >
-          <h1 className="font-syne text-5xl font-bold mb-4 text-text-primary">
-            Let's Build Your Website
-          </h1>
-          <p className="text-text-muted text-lg max-w-2xl mx-auto">
-            Reach out to us and let's discuss how we can help your clinic get more patients online
+    <>
+      <Helmet>
+        <title>Contact Us | GrowthLift Digital - Get in Touch</title>
+        <meta name="description" content="Get in touch with GrowthLift Digital. Contact us via WhatsApp, email, or fill out our contact form to discuss your web or mobile app project. Email: growthliftpk@gmail.com | Phone: +92 3280055453" />
+        <meta name="keywords" content="contact us, web development agency, mobile app development, get a quote, start a project, consultation" />
+        <link rel="canonical" href="https://growthliftdigital.com/contact" />
+      </Helmet>
+      <motion.main
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="min-h-screen pt-32 px-4 sm:px-8 pb-20"
+      >
+        <div className="max-w-7xl mx-auto">
+          {/* Page Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center mb-16"
+          >
+            <h1 className="font-syne text-5xl font-bold mb-4 text-text-primary">
+              Let's Start Your Project
+            </h1>
+            <p className="text-text-muted text-lg max-w-2xl mx-auto">
+              Reach out to us and let's discuss how we can help your startup or business scale with world-class development
           </p>
         </motion.div>
 
@@ -165,7 +173,7 @@ export default function Contact() {
             {/* Business Name Field */}
             <motion.div variants={itemVariants}>
               <label className="block text-text-primary font-medium mb-2">
-                Clinic/Business Name
+                Business/Startup Name
               </label>
               <input
                 type="text"
@@ -174,7 +182,7 @@ export default function Contact() {
                 onChange={handleChange}
                 required
                 className="w-full bg-surface border border-border rounded-lg px-4 py-3 text-text-primary placeholder-text-muted focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
-                placeholder="SmilePro Dental Clinic"
+                placeholder="Acme Startup Inc."
               />
             </motion.div>
 
@@ -205,7 +213,7 @@ export default function Contact() {
                 onChange={handleChange}
                 rows="5"
                 className="w-full bg-surface border border-border rounded-lg px-4 py-3 text-text-primary placeholder-text-muted focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all resize-none"
-                placeholder="Tell us a bit about your clinic and what you're looking for..."
+                placeholder="Tell us about your project, idea, and what you're looking for..."
               />
             </motion.div>
 
@@ -226,7 +234,8 @@ export default function Contact() {
             </motion.p>
           </motion.form>
         </div>
-      </div>
-    </motion.main>
+        </div>
+      </motion.main>
+    </>
   );
 }

@@ -67,6 +67,11 @@ export default function Footer() {
                 <Mail size={18} />
                 {config.email}
               </a>
+              {/* Plain text contact info for SEO crawling */}
+              <div className="text-text-muted text-sm pt-4 border-t border-border/50">
+                <p>Email: <span className="text-accent">{config.email}</span></p>
+                <p>Phone: <span className="text-accent">+92 3280055453</span></p>
+              </div>
             </div>
           </div>
         </div>

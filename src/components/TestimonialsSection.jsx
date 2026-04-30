@@ -5,24 +5,24 @@ import { Star } from 'lucide-react';
 export default function TestimonialsSection() {
   const testimonials = [
     {
-      name: 'Dr. Ayesha Khan',
-      role: 'Dental Clinic Owner',
+      name: 'Ahmed Hassan',
+      role: 'Founder, TechStartup Co.',
       content:
-        'GrowthLift Digital transformed how patients find us online. Within 2 months, we saw a 40% increase in appointment bookings through the website.',
+        'GrowthLift Digital built our MERN stack application exactly as we envisioned it. The performance and code quality exceeded our expectations, and they delivered on time.',
       rating: 5,
     },
     {
-      name: 'Dr. Hassan Malik',
-      role: 'Medical Clinic Director',
+      name: 'Fatima Riaz',
+      role: 'Product Manager, E-Commerce Platform',
       content:
-        'The WhatsApp integration is a game-changer. Patients love the instant response feature, and our response time has improved dramatically.',
+        'Their expertise in React and Firebase was instrumental in launching our MVP. They handled complex real-time features seamlessly and provided excellent support post-launch.',
       rating: 5,
     },
     {
-      name: 'Dr. Farah Ahmed',
-      role: 'Specialist Doctor',
+      name: 'Ali Raza',
+      role: 'CEO, Mobile App Startup',
       content:
-        'Professional, quick delivery, and the SEO work they did got us ranking on the first page for local searches. Highly recommended!',
+        'The Flutter app they developed for us is smooth, responsive, and beautifully designed. They understood our requirements perfectly and turned them into reality.',
       rating: 5,
     },
   ];
@@ -62,7 +62,7 @@ export default function TestimonialsSection() {
             What Our Clients Say
           </h2>
           <p className="text-text-muted text-lg">
-            Real feedback from real healthcare businesses
+            Real feedback from startups and businesses we've partnered with
           </p>
         </motion.div>
 
