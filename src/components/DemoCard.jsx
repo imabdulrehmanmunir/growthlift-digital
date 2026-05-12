@@ -1,8 +1,9 @@
 // Reusable demo card component for portfolio showcase
 import { motion } from 'framer-motion';
-import { ArrowRight, MessageCircle } from 'lucide-react';
+import { ArrowRight, ExternalLink, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { config } from '../config';
+import { a } from 'framer-motion/m';
 
 export default function DemoCard({ demo, index }) {
   const handleWhatsApp = (e) => {
@@ -19,54 +20,75 @@ export default function DemoCard({ demo, index }) {
       viewport={{ once: true }}
       className="group relative h-full"
     >
-      <Link to={`/demo/${demo.id}`}>
-        <div className="glass rounded-xl overflow-hidden h-full cursor-pointer hover:border-accent/50 transition-all duration-300 hover:shadow-2xl hover:shadow-accent/20 hover:scale-[1.02]">
-          
-          {/* Case Study Header */}
-          <div className="relative h-40 bg-gradient-to-br from-accent/20 to-accent-2/20 flex items-center justify-center overflow-hidden">
-            <div className="text-center">
-              <h4 className="font-syne text-sm font-bold text-accent/60 uppercase tracking-widest mb-2">
-                Case Study
-              </h4>
-              <p className="text-text-muted text-sm">Learn how we built this</p>
-            </div>
+      <div className="glass rounded-xl overflow-hidden h-full flex flex-col">
+        
+        {/* Project Image */}
+        {demo.image && (
+          <a href={demo.url}>
+            <div className="relative w-full bg-gradient-to-br from-accent/10 to-accent/5 flex items-center justify-center p-4">
+            <img 
+              src={demo.image} 
+              
+              alt={demo.name}
+              className="max-w-full max-h-96 object-contain group-hover:scale-105 transition-transform duration-300"
+            />
           </div>
+          </a>
+        )}
 
-          {/* Card Content */}
-          <div className="p-6">
-            {/* Tag */}
-            <span className="inline-block text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full mb-3">
-              {demo.tag}
-            </span>
+        {/* Card Content */}
+        <div className="p-6 flex-grow flex flex-col">
+          {/* Tag */}
+          <span className="inline-block text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full mb-3 w-fit">
+            {demo.tag}
+          </span>
 
-            {/* Title */}
-            <h3 className="font-syne font-bold text-xl mb-2 text-text-primary group-hover:text-accent transition-colors">
-              {demo.name}
-            </h3>
+          {/* Title */}
+          <h3 className="font-syne font-bold text-xl mb-2 text-text-primary group-hover:text-accent transition-colors">
+            {demo.name}
+          </h3>
 
-            {/* Description */}
-            <p className="text-text-muted text-sm mb-4 leading-relaxed">
-              {demo.description}
-            </p>
+          {/* Type */}
+          <p className="text-accent/70 text-sm font-medium mb-3">
+            {demo.type}
+          </p>
 
-            {/* CTA */}
-            <div className="flex items-center justify-between pt-4 border-t border-border group-hover:border-accent/30 transition-colors">
-              <span className="text-accent font-medium text-sm">
-                View Case Study
-              </span>
+          {/* Description */}
+          <p className="text-text-muted text-sm mb-6 leading-relaxed flex-grow">
+            {demo.description}
+          </p>
 
+          {/* CTA Buttons */}
+          <div className="flex gap-3 pt-4 border-t border-border group-hover:border-accent/30 transition-colors">
+            <Link 
+              to={`/demo/${demo.id}`}
+              className="flex-1 flex items-center justify-between text-accent font-medium text-sm hover:text-accent/80 transition-colors"
+            >
+              <span>View Case Study</span>
               <motion.div
                 className="text-accent"
                 initial={{ x: 0 }}
                 whileHover={{ x: 4 }}
               >
-                <ArrowRight size={18} />
+                <ArrowRight size={16} />
               </motion.div>
-            </div>
-          </div>
+            </Link>
 
+            {demo.url && (
+              <a 
+                href={demo.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center text-accent hover:text-accent/80 transition-colors p-2 hover:bg-accent/10 rounded-lg"
+                title="Visit live project"
+              >
+                <ExternalLink size={16} />
+              </a>
+            )}
+          </div>
         </div>
-      </Link>
+
+      </div>
     </motion.div>
   );
 }

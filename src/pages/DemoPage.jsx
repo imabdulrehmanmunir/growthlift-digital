@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import { ArrowLeft, MessageCircle } from 'lucide-react';
+import { ArrowLeft, MessageCircle, ExternalLink } from 'lucide-react';
 import { demos } from '../data/demos';
 import { config } from '../config';
 
@@ -68,16 +68,32 @@ export default function DemoPage() {
                 <p className="text-text-muted text-lg mb-8 leading-relaxed">
                   Want to see the complete mockups, live demo, or discuss similar solutions for your project? Get in touch with us on WhatsApp for a personalized walkthrough.
                 </p>
-                {/* Fixed: Removed button from inside anchor tag */}
-                <a
-                  href={`https://wa.me/${config.whatsapp}?text=${encodeURIComponent(`Hi, I'd like to see the full mockup and details of the ${demo.name} project.`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary pulse-glow text-lg px-10 py-4 inline-flex items-center justify-center gap-3 mx-auto"
-                >
-                  <MessageCircle size={24} />
-                  Get Full Demo on WhatsApp
-                </a>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  {/* Live Project Link */}
+                  {demo.url && (
+                    <a
+                      href={demo.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary pulse-glow text-lg px-10 py-4 inline-flex items-center justify-center gap-3"
+                    >
+                      <ExternalLink size={24} />
+                      Visit Live Website
+                    </a>
+                  )}
+                  
+                  {/* WhatsApp Link */}
+                  <a
+                    href={`https://wa.me/${config.whatsapp}?text=${encodeURIComponent(`Hi, I'd like to see the full mockup and details of the ${demo.name} project.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary pulse-glow text-lg px-10 py-4 inline-flex items-center justify-center gap-3 bg-accent/80 hover:bg-accent/90"
+                  >
+                    <MessageCircle size={24} />
+                    Chat on WhatsApp
+                  </a>
+                </div>
               </div>
             </div>
           </div>

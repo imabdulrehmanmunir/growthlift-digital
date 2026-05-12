@@ -8,7 +8,7 @@ export default function FounderSection() {
     email: 'imabdulrehmanmuneer@gmail.com',
     location: 'Lahore, Pakistan',
     title: 'Founder & CEO',
-    image: '/founder.png',
+    image: '/abdulrehman-munir-growthlift-digital.png',
   };
 
   const containerVariants = {
@@ -58,7 +58,7 @@ export default function FounderSection() {
             <div className="w-48 h-48 rounded-full bg-gradient-to-br from-accent to-accent/70 p-1 shadow-lg">
               <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
                 <img
-                  src="/founder.png"
+                  src="/abdulrehman-munir-growthlift-digital.png"
                   alt={founder.name}
                   className="w-full h-full object-cover"
                 />

@@ -8,7 +8,7 @@ import DemoCard from '../components/DemoCard';
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState('All');
 
-  const filterOptions = ['All', 'React & Vite', 'Android & Firebase'];
+  const filterOptions = ['All', 'Web Design'];
 
   const filteredDemos =
     activeFilter === 'All'
