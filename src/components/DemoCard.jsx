@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { ArrowRight, ExternalLink, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { config } from '../config';
-import { a } from 'framer-motion/m';
 
 export default function DemoCard({ demo, index }) {
   const handleWhatsApp = (e) => {

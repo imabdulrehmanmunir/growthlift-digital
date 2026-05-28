@@ -4,4 +4,10 @@ export const config = {
   email: 'growthliftpk@gmail.com',
   agencyName: 'GrowthLift Digital',
   tagline: 'Building Web & Mobile Solutions That Drive Growth.',
+  founder: {
+    name: 'Abdul Rehman Munir',
+    title: 'Founder & Owner',
+    email: 'imabdulrehmanmuneer@gmail.com',
+    location: 'Lahore, Pakistan',
+  },
 };

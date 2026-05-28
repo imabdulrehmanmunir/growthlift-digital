@@ -1,6 +1,6 @@
-// Services section with 4 cards showing main offerings
+// Services section with 5 cards showing main offerings
 import { motion } from 'framer-motion';
-import { Code, Smartphone, Wind, TrendingUp } from 'lucide-react';
+import { Code, Smartphone, Wind, TrendingUp, Film } from 'lucide-react';
 
 export default function ServicesSection() {
   const services = [
@@ -12,18 +12,24 @@ export default function ServicesSection() {
     },
     {
       number: '02',
+      title: 'Professional Video Editing',
+      description: 'Top 1% video editing services. Cinematic cuts, color grading, animations, and storytelling that captivates your audience. Perfect for marketing, reels, and brand content.',
+      icon: Film,
+    },
+    {
+      number: '03',
       title: 'Custom Android Apps',
       description: 'Native Android applications built with Java and Firebase integration. Real-time databases, secure admin dashboards, and seamless user experiences.',
       icon: Smartphone,
     },
     {
-      number: '03',
+      number: '04',
       title: 'Flutter Development',
       description: 'Cross-platform mobile applications that work flawlessly on iOS and Android. Write once, deploy everywhere with beautiful UI.',
       icon: Wind,
     },
     {
-      number: '04',
+      number: '05',
       title: 'SEO Strategy',
       description: 'Data-driven SEO strategies to boost your online visibility. We handle technical optimization, content strategy, and performance tracking.',
       icon: TrendingUp,
@@ -75,7 +81,7 @@ export default function ServicesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8"
         >
           {services.map((service) => {
             const IconComponent = service.icon;

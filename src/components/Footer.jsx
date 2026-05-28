@@ -78,9 +78,14 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-border pt-8">
-          <p className="text-center text-text-muted text-xs sm:text-sm">
-            © 2025 {config.agencyName}. Built to grow your practice.
-          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-center sm:text-left text-text-muted text-xs sm:text-sm">
+              © 2025 {config.agencyName}. Founded by <span className="text-accent font-semibold">{config.founder.name}</span>. Built to grow your practice.
+            </p>
+            <p className="text-text-muted text-xs sm:text-sm">
+              <span className="text-accent">Lahore, Pakistan</span> • Est. 2024
+            </p>
+          </div>
         </div>
       </div>
     </footer>
