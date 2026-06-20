@@ -30,8 +30,8 @@ export default function Navbar() {
 
   const navLinks = [
     { label: 'Home', href: '/' },
-    { label: 'Video Editing', href: '/video-editing' },
     { label: 'Portfolio', href: '/portfolio' },
+    { label: 'Team', href: '/team' },
     { label: 'Contact', href: '/contact' },
   ];
 

@@ -4,11 +4,14 @@ import { HelmetProvider, Helmet } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
+import CaseStudyPopup from './components/CaseStudyPopup';
+import ScrollToTop from './components/ScrollToTop';
 // import CustomCursor from './components/CustomCursor';
 import Home from './pages/Home';
 import Portfolio from './pages/Portfolio';
 import DemoPage from './pages/DemoPage';
 import Contact from './pages/Contact';
+import Team from './pages/Team';
 import VideoPortfolio from './pages/VideoPortfolio';
 import { config } from './config';
 
@@ -16,6 +19,7 @@ function App() {
   return (
     <HelmetProvider>
       <Router>
+        <ScrollToTop />
         <Helmet>
           <title>GrowthLift Digital | Web Development, Video Editing & Mobile Apps | {config.founder.name}</title>
           <meta name="description" content={`${config.agencyName} founded by ${config.founder.name} - Professional web development, video editing, MERN stack, Android apps, React.js, and digital marketing services. Get your free mockup today!`} />
@@ -29,9 +33,11 @@ function App() {
         </Helmet>
         {/* <CustomCursor /> */}
         <Navbar />
+        <CaseStudyPopup />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/team" element={<Team />} />
           <Route path="/video-editing" element={<VideoPortfolio />} />
           <Route path="/demo/:id" element={<DemoPage />} />
           <Route path="/contact" element={<Contact />} />
