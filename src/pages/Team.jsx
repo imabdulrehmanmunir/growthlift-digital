@@ -26,31 +26,31 @@ export default function Team() {
   ];
 
   return (
-    <main className="min-h-screen pt-24 pb-20">
+    <main className="min-h-screen pt-20 pb-16 sm:pt-24 sm:pb-20 overflow-x-hidden">
       {/* Background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-accent/8 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-2/5 rounded-full blur-3xl" />
+      <div className="fixed inset-0 -z-10 pointer-events-none">
+        <div className="absolute top-1/4 left-1/3 w-64 h-64 sm:w-96 sm:h-96 bg-accent/8 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-accent-2/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-20"
         >
-          <h1 className="font-syne text-5xl sm:text-6xl font-bold mb-6 text-text-primary">
+          <h1 className="font-syne text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-text-primary">
             Meet Our Team
           </h1>
-          <p className="text-text-muted text-lg sm:text-xl max-w-2xl mx-auto">
+          <p className="text-text-muted text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-2">
             Visionary leaders and technical experts dedicated to transforming your digital presence and scaling your business through innovation and excellence.
           </p>
         </motion.div>
 
         {/* Team Members Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 mb-12 sm:mb-20">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.id}
@@ -60,9 +60,9 @@ export default function Team() {
               viewport={{ once: true }}
               className="group"
             >
-              <div className="glass rounded-2xl overflow-hidden h-full flex flex-col">
+              <div className="glass rounded-xl sm:rounded-2xl overflow-hidden h-full flex flex-col">
                 {/* Image */}
-                <div className="relative w-full h-96 bg-gradient-to-br from-accent/10 to-accent/5 overflow-hidden">
+                <div className="relative w-full h-56 sm:h-80 md:h-96 bg-gradient-to-br from-accent/10 to-accent/5 overflow-hidden">
                   <img
                     src={member.image}
                     alt={member.name}
@@ -71,40 +71,40 @@ export default function Team() {
                 </div>
 
                 {/* Content */}
-                <div className="p-8 flex-grow flex flex-col">
+                <div className="p-4 sm:p-6 md:p-8 flex-grow flex flex-col">
                   {/* Title */}
-                  <h2 className="font-syne font-bold text-2xl mb-1 text-text-primary">
+                  <h2 className="font-syne font-bold text-lg sm:text-xl md:text-2xl mb-1 text-text-primary">
                     {member.name}
                   </h2>
 
                   {/* Role */}
-                  <p className="text-accent font-semibold text-sm mb-6">
+                  <p className="text-accent font-semibold text-xs sm:text-sm mb-4 sm:mb-6">
                     {member.title}
                   </p>
 
                   {/* Description */}
-                  <p className="text-text-muted text-sm leading-relaxed mb-8 flex-grow">
+                  <p className="text-text-muted text-xs sm:text-sm leading-relaxed mb-6 sm:mb-8 flex-grow">
                     {member.description}
                   </p>
 
                   {/* Social Links */}
-                  <div className="flex gap-4 pt-6 border-t border-border">
+                  <div className="flex flex-col sm:flex-row gap-3 pt-4 sm:pt-6 border-t border-border">
                     <a
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 rounded-lg bg-accent/10 text-accent hover:bg-accent hover:text-white transition-all duration-300 flex-1 justify-center"
+                      className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-accent/10 text-accent hover:bg-accent hover:text-white transition-all duration-300 flex-1"
                     >
-                      <ExternalLink size={16} />
-                      <span className="text-sm font-medium">LinkedIn</span>
+                      <ExternalLink size={14} className="sm:w-4 sm:h-4" />
+                      <span className="text-xs sm:text-sm font-medium">LinkedIn</span>
                     </a>
 
                     <a
                       href={`mailto:${member.email}`}
-                      className="flex items-center gap-2 px-4 py-2 rounded-lg bg-accent/10 text-accent hover:bg-accent hover:text-white transition-all duration-300 flex-1 justify-center"
+                      className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-accent/10 text-accent hover:bg-accent hover:text-white transition-all duration-300 flex-1"
                     >
-                      <Mail size={16} />
-                      <span className="text-sm font-medium">Email</span>
+                      <Mail size={14} className="sm:w-4 sm:h-4" />
+                      <span className="text-xs sm:text-sm font-medium">Email</span>
                     </a>
                   </div>
                 </div>
@@ -119,17 +119,17 @@ export default function Team() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="glass rounded-2xl p-12 text-center"
+          className="glass rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12 text-center"
         >
-          <h2 className="font-syne text-3xl font-bold mb-4 text-text-primary">
+          <h2 className="font-syne text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-text-primary">
             Ready to Work With Us?
           </h2>
-          <p className="text-text-muted text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-text-muted text-sm sm:text-base md:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto px-2">
             Our team is ready to transform your vision into reality. Whether you need custom web development, AI automation, or strategic digital solutions, we're here to help.
           </p>
           <Link to="/contact">
-            <button className="btn-primary pulse-glow inline-flex items-center gap-2">
-              Get Started Today <ArrowRight size={18} />
+            <button className="btn-primary pulse-glow inline-flex items-center gap-2 text-sm sm:text-base">
+              Get Started Today <ArrowRight size={16} className="sm:w-5 sm:h-5" />
             </button>
           </Link>
         </motion.div>
