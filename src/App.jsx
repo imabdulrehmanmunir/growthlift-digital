@@ -12,7 +12,6 @@ import Portfolio from './pages/Portfolio';
 import DemoPage from './pages/DemoPage';
 import Contact from './pages/Contact';
 import Team from './pages/Team';
-import VideoPortfolio from './pages/VideoPortfolio';
 import { config } from './config';
 
 function App() {
@@ -21,13 +20,13 @@ function App() {
       <Router>
         <ScrollToTop />
         <Helmet>
-          <title>GrowthLift Digital | Web Development, Video Editing & Mobile Apps | {config.founder.name}</title>
-          <meta name="description" content={`${config.agencyName} founded by ${config.founder.name} - Professional web development, video editing, MERN stack, Android apps, React.js, and digital marketing services. Get your free mockup today!`} />
-          <meta name="keywords" content="MERN stack development, React developers, Android app development, professional video editing, custom web design, SEO agency, GrowthLift Digital, Abdul Rehman Munir, video editing services, digital marketing, web development agency" />
+          <title>GrowthLift Digital | Web Development & Mobile Apps | {config.founder.name}</title>
+          <meta name="description" content={`${config.agencyName} founded by ${config.founder.name} - Professional web development, MERN stack, Android apps, React.js, and digital marketing services. Get your free mockup today!`} />
+          <meta name="keywords" content="MERN stack development, React developers, Android app development, custom web design, SEO agency, GrowthLift Digital, Abdul Rehman Munir, digital marketing, web development agency" />
           <meta name="author" content={`${config.founder.name} - ${config.agencyName}`} />
           <meta name="robots" content="index, follow" />
-          <meta property="og:title" content={`${config.agencyName} | Web Development & Video Editing Agency | ${config.founder.name}`} />
-          <meta property="og:description" content={`Award-winning digital agency by ${config.founder.name}. Expert web development, professional video editing, mobile apps, and digital marketing.`} />
+          <meta property="og:title" content={`${config.agencyName} | Web Development & Mobile Apps | ${config.founder.name}`} />
+          <meta property="og:description" content={`Award-winning digital agency by ${config.founder.name}. Expert web development, mobile apps, and digital marketing.`} />
           <meta property="og:type" content="website" />
           <link rel="canonical" href="https://growthliftdigital.com" />
         </Helmet>
@@ -38,7 +37,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/team" element={<Team />} />
-          <Route path="/video-editing" element={<VideoPortfolio />} />
           <Route path="/demo/:id" element={<DemoPage />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
